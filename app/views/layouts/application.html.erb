@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html>
   <head>
+     <%- # Everything that is in this file will be applied to all pages -%>
     
-    <%- # YIELD: Responsilbe for inserting code into all pages -%>
+    <%-# We get the base title from app/helpers/application_helper- -%>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
-
+  
+    <%-# ASSETS AND STYLESHEETS -%>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+    <%-# renders the partial app/views/layouts/_shim.html.erb- -%>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%-# renders the partial app/views/layouts/_header.html.erb- -%>
+    <%= render 'layouts/header' %>
+    
+    <div class="container">
+      <%-# SHOWS MESSAGES (ERRORS OR ACCOMPLSHEMSNTS) -%>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      
+      <%-# This code is responsible for inserting the contents of each page into layout- -%>
+      <%= yield %>
+      
+      <%-# Gets the debug box below -%>
+      <%= debug(params) if Rails.env.development? %>
+      
+      <%-# renders FOOTER -%>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
