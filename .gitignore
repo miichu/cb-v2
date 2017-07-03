@@ -19,3 +19,6 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+#ignore spring server to prevent conflicts in between Spring and Git when using Guard
+spring/*.pid
