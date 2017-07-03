@@ -3,7 +3,7 @@
   <head>
     
     <%- # YIELD: Responsilbe for inserting code into all pages -%>
-    <title><%= yield(:title) %> | CourseBuddies</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
