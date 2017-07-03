@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CbV2</title>
+    
+    <%- # YIELD: Responsilbe for inserting code into all pages -%>
+    <title><%= yield(:title) %> | CourseBuddies</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
