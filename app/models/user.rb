@@ -13,6 +13,7 @@ class User < ApplicationRecord
     # gives you password & password_confirmation attributes, 
     # an authenticate method that returns the user when pw is correct,
     # otherwise false. 
-    has_secure_password
-    validates :password, presence: true, length: { minimum: 6 }
+    has_secure_password(validations:false)
+    attr_accessor :password, :password_confirmation
+    validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 end

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # get a page at the address /pages/about us
   get '/about', to: 'pages#about'
   get '/signup', to: 'users#new'
+  post '/signup',  to: 'users#create' #signup route that responds to POST requests.
 
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     
     

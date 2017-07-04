@@ -1,4 +1,13 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, "Signup") %>
+<div class="row">
+    <h1>Sign up</h1>
+    
 
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+    <%= render 'form', user: @user %>
+
+
+    <div class="back-btn-align">
+        <br>
+        <%= link_to 'Go back', users_path %>
+    </div>
+</div>
