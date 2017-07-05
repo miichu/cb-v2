@@ -1,13 +1,18 @@
 <% provide(:title, "Signup") %>
+<% provide(:button_text, "Create my account") %>
+
 <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+  
     <h1>Sign up</h1>
     
-
+    
     <%= render 'form', user: @user %>
 
 
     <div class="back-btn-align">
         <br>
         <%= link_to 'Go back', users_path %>
+    </div>
     </div>
 </div>

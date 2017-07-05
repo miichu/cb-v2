@@ -124,7 +124,7 @@ aside {
   }
   section {
     padding: 10px 0;
-    margin-top: 20px;
+    margin-top: 30px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -170,6 +170,22 @@ input {
   text-align:center;
 }
 
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+
 #error_explanation {
   color: red;
   ul {
@@ -184,3 +200,4 @@ input {
     color: $state-danger-text;
   }
 }
+
