@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # By using GET we arrange for the route to respond to a GET request.
   # With this we generate a about us action inside the Pages controller, automatically
   # get a page at the address /pages/about us
-  get '/about', to: 'pages#about' 
   get '/signup', to: 'users#new'
   post '/signup',  to: 'users#create' #signup route that responds to POST requests.
   get    '/login',   to: 'sessions#new'

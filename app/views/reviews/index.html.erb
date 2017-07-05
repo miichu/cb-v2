@@ -6,10 +6,13 @@
   <h3>Reviews</h3>
   <p>These reviews are sorted so that the most recent reviews are on the top.</p>
     <%-#<%= render 'shared/all_reviews' %>
-    
+    <br>
+  <div class="signup-now">
+    To make a review you need to be <%= link_to "logged in", login_path %>! Don't have an account? <%= link_to "Sign up!", signup_path %>
+  </div>  
   <br>
   <br>
-  <p>Use the search bar to find a specific review.</p>
+ 
   
   <%-#<%= THE SEARCH BAR %>
   

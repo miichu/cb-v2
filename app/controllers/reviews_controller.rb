@@ -2,11 +2,9 @@ class ReviewsController < ApplicationController
     before_action :set_review, only: [:show, :destroy]
     before_action :logged_in_user, only: [:create, :edit, :destroy]
     
-    #ADDED FROM CB
+
     def index
-        #@reviews = Review.all
         @reviews = Review.all
- 
         if params[:search]
             @reviews = Review.search(params[:search]).order("created_at DESC")
         else
