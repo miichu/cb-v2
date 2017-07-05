@@ -61,4 +61,14 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.authenticated?('')
   end
   
+  test "associated reviews should be destroyed" do
+    @user.save
+    @user.reviews.create!(content: "Lorem ipsum", 
+    course:"Practice of Information Systems", year:"2017", semester:"Spring", 
+    professor:"Ohshima")
+    assert_difference 'Review.count', -1 do
+      @user.destroy
+    end
+  end
+  
 end

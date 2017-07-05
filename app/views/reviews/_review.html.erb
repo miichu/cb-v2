@@ -1,0 +1,29 @@
+<li id="review-<%= review.id %>">
+  <%- #<%= link_to gravatar_for(review.user, size: 50), review.user %>
+  <span class="user">
+    <%- #<%= link_to review.user.name, review.user %>
+    <b><%= review.course %></b>
+  </span>
+  <br><br>
+  
+  <span class="content"><%= review.content %></span>
+  
+  <br><br>
+  <span class="information">
+    <b>Professor: </b><%= review.professor %><br>
+    <b>Year: </b><%= review.year %><br>
+    <b>Semester: </b><%= review.semester %>
+  </span>
+  <br>
+  <br>
+  <span class="timestamp">Posted by <%= link_to review.user.name, review.user %>
+    <%= time_ago_in_words(review.created_at) %> ago.
+    
+    <%- #DELETE FUNCTION %>
+    <% if current_user?(review.user) %>
+      <%= link_to "delete", review, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
+<hr>

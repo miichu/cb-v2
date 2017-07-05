@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :reviews, dependent: :destroy
     attr_accessor :remember_token
     
     #before saving, make sure the email is in downcase
@@ -18,7 +19,10 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence:true, length: { minimum: 6 }, allow_nil: true
     
-    
+    def feed
+        #Micropost.where("user_id = ?", id)
+        reviews
+    end
   
      # Returns the hash digest of the given string.
     def User.digest(string)

@@ -1,0 +1,29 @@
+<%= form_for(@review) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  
+   <div class="field">
+    <%= f.label :course %>
+    <%= f.text_field :course, placeholder: "Practice of Information Systems" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :professor %>
+    <%= f.text_field :professor, placeholder: "Ohshima" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :semester %>
+    <%= f.text_field :semester, placeholder: "Spring? Fall?" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.text_field :year, placeholder: "2016? 2017?" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :review %>
+    <%= f.text_area :content, placeholder: "Compose new review..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-primary" %>
+<% end %>

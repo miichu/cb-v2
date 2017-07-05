@@ -1,6 +1,6 @@
 <% provide(:title, @user.name) %>
 <p id="notice"><%= notice %></p>
-
+<br>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -9,27 +9,18 @@
       </h1>
     </section>
   </aside>
+  
+  <div class="col-md-8">
+    <% if @user.reviews.any? %>
+      <h3>Reviews (<%= @user.reviews.count %>)</h3>
+      <ol class="reviews">
+        <%= render @reviews %>
+      </ol>
+      <%= will_paginate @reviews %>
+    <% else %>
+      You have no reviews yet. <p><br>What are you waiting for? Start writing some reviews!</p>
+    <% end %>
+  </div>
 </div>
 
-<%- #<h2>User profile</h2> %>
-<br>
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-<br>
-<hr>
-<br>
-<p>
-  <strong>Reviews:</strong>
-  <%-# if @user.reviews.present? %>
-    <%-# @user.reviews.present %>
-  <%-# else %>
-    You have no reviews yet. <p><br>What are you waiting for? Start writing some reviews!</p>
-  <%-# end %>
-</p>
 

@@ -1,0 +1,35 @@
+<% provide(:title, "Reviews") %>
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-1">
+  <h3>Reviews</h3>
+  <p>These reviews are sorted so that the most recent reviews are on the top.</p>
+    <%-#<%= render 'shared/all_reviews' %>
+    
+  <br>
+  <br>
+  <p>Use the search bar to find a specific review.</p>
+  
+  <%-#<%= THE SEARCH BAR %>
+  
+  <%= form_tag(reviews_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for reviews by their coursename, professor, year or semester.." %>
+    <%= submit_tag "Search", :name => nil %>
+  <% end %>
+
+
+  <%-#<%= RENDERING SEARCH RESULTS %>
+  <% if @reviews.blank? %>
+    <p>There are no reviews containing the term(s) "<%= params[:search]  %>". 
+    <%= link_to "Go Back?",   reviews_path %></p>
+  <% else %>
+      <%= render @reviews %>
+  <% end %>
+
+  <%-#<%= ALL THE REVIEWS %>  
+  <% @reviews.each do |review| %>
+    <%= render review %>
+  <% end %>
+</div>
+</div>
