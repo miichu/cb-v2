@@ -201,3 +201,27 @@ input {
   }
 }
 
+
+/* ---- USERS INDEX ------- */
+
+.users {
+  list-style: none;
+  margin: 50px;
+  float: center;
+  
+  .design {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+    
+    td {
+      padding: 5px;
+    }
+  }
+}
+
+.align-dis {
+  padding: 0  0 0 125px; /*top right bottom left*/
+  float:center;
+}
+

@@ -1,0 +1,22 @@
+
+
+<table class="users">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th colspan="5"></th>
+    </tr>
+    
+    <% @users.each do |user| %>
+      <tr class="design">
+        <td ><%= link_to user.name, user %>  </td>
+        <td><%= user.email %>  </td>
+        <td><%= link_to 'Show', user %>  </td>
+        <td>  <% if current_user.admin? && !current_user?(user) %>
+        | <%= link_to "delete", user, method: :delete,
+                                      data: { confirm: "You sure?" } %>
+      <% end %></td>
+        
+      </tr>
+    <% end %>
+</table>
