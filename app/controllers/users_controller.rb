@@ -29,9 +29,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params) #params[:user])#user_params)
     
-    
-    #respond_to do |format|
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to CourseBuddies!"
       redirect_to @user
       
@@ -73,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :pasword, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
